@@ -15,12 +15,39 @@
         <title>DataLoggerLiveApp</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <div data-role="page" id="weather-page">
+
+            <div data-role="header" class="header">
+                <h1 id="app-title">Weather App</h1>
+                <a href="/" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Home</a>
             </div>
+
+            <div role="main" class="ui-content">
+                <form>
+                    <label for="zip-code">Type your zip code:</label>
+                    <input id="zip-code-input" name="zip-code" placeholder="eg. 98001" required />
+                    <button id="get-weather-btn" data-role="button" data-icon="search">Find Weather</button>
+                </form>
+
+                <ul id="weather-data" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+                    <li data-role="list-divider" id="title" class="ui-li-divider ui-bar-a"></li>
+                    <li><span id="summary"><span id="temperature"></span> F <img src="" /></span></li>
+                    <li>Wind: <span id="wind"></span> knots</li>
+                    <li>Humidity: <span id="humidity"></span> %</li>
+                    <li>Visibility: <span id="visibility"></span></li>
+                    <li>Sunrise: <span id="sunrise"></span></li>
+                    <li>Sunset: <span id="sunset"></span></li>
+                </ul>
+
+                <div id="error-msg" class="not-displayed">
+                </div>
+
+            </div>
+
+            <footer data-role="footer" data-position="fixed">
+                <h4>Visual Studio Tools for Cordova Demo</h4>
+            </footer>
+
         </div>
         <script src="scripts/jquery-3.2.1.min.js"></script>
         <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
