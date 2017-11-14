@@ -1,16 +1,18 @@
-﻿var OpenWeatherAppKey = "Your_Key_Here";
+﻿// var OpenWeatherAppKey = "Your_Key_Here";
 
-function getWeatherWithZipCode() {
+function getDataFromDataLogger() {
 
-    var zipcode = $('#zip-code-input').val();
+    var datalogger = $('#data-logger-input').val();
+
+    var datalistname = 'time';
 
     var queryString =
-        'http://api.openweathermap.org/data/2.5/weather?zip='
-        + zipcode + ',us&appid=' + OpenWeatherAppKey + '&units=imperial';
+        'https://'
+        + datalogger + ':443/' + datalistname + '.json';
 
     $.getJSON(queryString, function (results) {
 
-        showWeatherData(results);
+        showData(results);
 
     }).fail(function (jqXHR) {
         $('#error-msg').show();
@@ -20,27 +22,27 @@ function getWeatherWithZipCode() {
     return false;
 }
 
-function showWeatherData(results) {
+function showData(results) {
 
-    if (results.weather.length) {
+    if (results.length) {
 
         $('#error-msg').hide();
-        $('#weather-data').show();
+        $('#data-logger-data').show();
 
         $('#title').text(results.name);
-        $('#temperature').text(results.main.temp);
-        $('#wind').text(results.wind.speed);
-        $('#humidity').text(results.main.humidity);
-        $('#visibility').text(results.weather[0].main);
+ //       $('#temperature').text(results.main.temp);
+        $('#hours').text(results.hours);
+        $('#minutes').text(results.minutes);
+        $('#seconds').text(results.seconds);
 
-        var sunriseDate = new Date(results.sys.sunrise * 1000);
-        $('#sunrise').text(sunriseDate.toLocaleTimeString());
+//        var sunriseDate = new Date(results.sys.sunrise * 1000);
+//        $('#sunrise').text(sunriseDate.toLocaleTimeString());
 
-        var sunsetDate = new Date(results.sys.sunset * 1000);
-        $('#sunset').text(sunsetDate.toLocaleTimeString());
+//        var sunsetDate = new Date(results.sys.sunset * 1000);
+//        $('#sunset').text(sunsetDate.toLocaleTimeString());
 
     } else {
-        $('#weather-data').hide();
+        $('#data-logger-data').hide();
         $('#error-msg').show();
         $('#error-msg').text("Error retrieving data. ");
     }

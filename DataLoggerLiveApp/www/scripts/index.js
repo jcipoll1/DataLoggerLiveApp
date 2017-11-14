@@ -20,7 +20,7 @@
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
         */
-        $('#get-weather-btn').click(getWeatherWithZipCode);
+        $('#get-data-btn').click(getDataFromDataLogger);
     };
 
     function onPause() {
