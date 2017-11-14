@@ -15,39 +15,39 @@
         <title>DataLoggerLiveApp</title>
     </head>
     <body>
-        <div data-role="page" id="weather-page">
+        <div data-role="page" id="datalogger-page">
 
             <div data-role="header" class="header">
-                <h1 id="app-title">Weather App</h1>
+                <h1 id="app-title">Data Logger Live App</h1>
                 <a href="/" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Home</a>
             </div>
 
             <div role="main" class="ui-content">
                 <form>
                     <label for="zip-code">Type your zip code:</label>
-                    <input id="zip-code-input" name="zip-code" placeholder="eg. 98001" required />
-                    <button id="get-weather-btn" data-role="button" data-icon="search">Find Weather</button>
+                    <input id="data-logger-input" name="data-logger-name" placeholder="eg. bus12345" required />
+                    <button id="get-data-btn" data-role="button" data-icon="search">Connect</button>
                 </form>
 
-                <ul id="weather-data" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+                <ul id="data-logger-data" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
                     <li data-role="list-divider" id="title" class="ui-li-divider ui-bar-a"></li>
-                    <li><span id="summary"><span id="temperature"></span> F <img src="" /></span></li>
-                    <li>Wind: <span id="wind"></span> knots</li>
-                    <li>Humidity: <span id="humidity"></span> %</li>
-                    <li>Visibility: <span id="visibility"></span></li>
-                    <li>Sunrise: <span id="sunrise"></span></li>
-                    <li>Sunset: <span id="sunset"></span></li>
+<!--                    <li><span id="summary"><span id="temperature"></span> F <img src="" /></span></li>  -->
+                    <li>Hours: <span id="hours"></span></li>
+                    <li>Minutes: <span id="minutes"></span></li>
+                    <li>Seconds: <span id="seconds"></span></li>
+<!--                    <li>Sunrise: <span id="sunrise"></span></li>
+                    <li>Sunset: <span id="sunset"></span></li>   -->
                 </ul>
 
                 <div id="error-msg" class="not-displayed">
                 </div>
 
             </div>
-
+<!--
             <footer data-role="footer" data-position="fixed">
                 <h4>Visual Studio Tools for Cordova Demo</h4>
             </footer>
-
+-->
         </div>
         <script src="scripts/jquery-3.2.1.min.js"></script>
         <script src="scripts/jquery.mobile-1.4.5.min.js"></script>

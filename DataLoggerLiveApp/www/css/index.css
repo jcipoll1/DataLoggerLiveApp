@@ -7,11 +7,11 @@ form {
     padding-bottom: 5px;
 }
 
-#zip-code-input {
+#data-logger-input {
     font-size: 25px;
 }
 
-#get-weather-btn {
+#get-data-btn {
     font-size: 22px;
 }
 
