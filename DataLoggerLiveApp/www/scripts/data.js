@@ -9,13 +9,6 @@
         + datalogger
 //        + ':443'
         + '/' + datalistname + '.json';
-    /*
-    var OpenWeatherAppKey = "cd2c92a41ccfcdee1b918f78167d67bf";
-    var zipcode = '13901';
-
-   queryString =
-        'http://api.openweathermap.org/data/2.5/weather?zip='
-        + zipcode + ',us&appid=' + OpenWeatherAppKey + '&units=imperial';*/
 
     $.getJSON(queryString, function (results) {
 
