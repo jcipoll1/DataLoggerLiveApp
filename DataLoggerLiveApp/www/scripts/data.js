@@ -1,8 +1,10 @@
-﻿function getDataFromDataLogger() {
+﻿var intervalID;
+
+function getDataFromDataLogger() {
 
     var datalogger = $('#data-logger-input').val();
-
     var datalistname = 'time';
+    var timeinterval = 1000;
 
     var queryString =
         'http://'
@@ -10,16 +12,25 @@
 //        + ':443'
         + '/' + datalistname + '.json';
 
-    $.getJSON(queryString, function (results) {
+    intervalID = setInterval(function (results) {
 
-        showData(results);
+        $.getJSON(queryString, function (results) {
+
+            showData(results);
 
         }).fail(function (jqXHR) {
             $('#error-msg').show();
             $('#error-msg').text("Error retrieving data. " + jqXHR.statusText);
         });
 
-        return false;
+    }, timeinterval);
+
+    //Hide Button for Unnecessary Option
+    $('#get-data-btn').hide();
+    //Show Button for Necessary Option
+    $('#stop-data-btn').show();
+
+    return false;
 }
 
 function showData(results) {
@@ -46,4 +57,16 @@ function showData(results) {
         $('#error-msg').show();
         $('#error-msg').text("Error retrieving data. ");
     }
+}
+
+function stopDataFromDataLogger() {
+    //Stop Data Request
+    clearInterval(intervalID);
+    //Hide Stale Data
+    $('#data-logger-data').hide();
+    //Hide Button for Unnecessary Option
+    $('#stop-data-btn').hide();
+    //Show Button for Necessary Option
+    $('#get-data-btn').show();
+    
 }

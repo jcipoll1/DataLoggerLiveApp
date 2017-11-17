@@ -15,6 +15,11 @@ form {
     font-size: 22px;
 }
 
+#stop-data-btn {
+    font-size: 22px;
+    display:none;
+}
+
 #title {
     font-size: 16px;
 }

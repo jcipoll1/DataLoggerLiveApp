@@ -21,6 +21,7 @@
         receivedElement.setAttribute('style', 'display:block;');
         */
         $('#get-data-btn').click(getDataFromDataLogger);
+        $('#stop-data-btn').click(stopDataFromDataLogger);
     };
 
     function onPause() {
