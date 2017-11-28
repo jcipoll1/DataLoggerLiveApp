@@ -1,4 +1,5 @@
 ﻿var intervalID;
+$.ajaxSetup({ cache: false });
 
 function getDataFromDataLogger() {
 
@@ -11,6 +12,8 @@ function getDataFromDataLogger() {
         + datalogger
 //        + ':443'
         + '/' + datalistname + '.json';
+
+    
 
     intervalID = setInterval(function (results) {
 
